@@ -42,6 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //OUTLETS-------------------------------------------------------------------------------
     @IBOutlet weak var compassImage: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var compassArrow: UIImageView!
     //--------------------------------------------------------------------------------------
     
     
@@ -102,7 +103,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         //Animate compass image
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .allowUserInteraction, animations: {
-            self.compassImage.transform = CGAffineTransform(rotationAngle: -self.radians)
+            self.compassArrow.transform = CGAffineTransform(rotationAngle: self.radians)
         })
     }
 }

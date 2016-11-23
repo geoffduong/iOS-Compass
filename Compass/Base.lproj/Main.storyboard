@@ -32,10 +32,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="vwN-mX-Cfd">
+                                <rect key="frame" x="39" y="220" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="compassArrow" destination="vwN-mX-Cfd" id="GkI-JH-EPp"/>
                         <outlet property="compassImage" destination="onL-gh-PN1" id="wKy-ZI-JBs"/>
                         <outlet property="headingLabel" destination="q92-Yp-zCS" id="jp5-3a-gp0"/>
                     </connections>
@@ -46,6 +51,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.png" width="512" height="512"/>
         <image name="compass.jpg" width="300" height="300"/>
     </resources>
 </document>
