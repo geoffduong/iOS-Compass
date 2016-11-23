@@ -12,6 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    //Global variables
     let speechSynthesizer = AVSpeechSynthesizer()
     var locationManager:CLLocationManager!
     var degrees:CGFloat = 0.0
@@ -19,12 +20,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Location manager initialization
         locationManager  = CLLocationManager()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingHeading()
         
-        
-        
+        //Create gesture recognizer and add to compassImage
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
         compassImage.isUserInteractionEnabled = true
         compassImage.addGestureRecognizer(tapGestureRecognizer)
@@ -35,22 +38,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //OUTLETS-------------------------------------------------------------------------------
     @IBOutlet weak var compassImage: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var rotateBtn: UIButton!
-    
-    //TEST: rotate image
-    @IBAction func rotateImage(_ sender: UIButton) {
-        degrees += CGFloat(M_PI)/2.0
-        UIView.animate(withDuration: 2.0, animations: {
-            self.compassImage.transform = CGAffineTransform(rotationAngle: self.degrees)
-        })
-    }
-    
-    
-    
-    
-    
+    //--------------------------------------------------------------------------------------
     
     
     //Speak if immage is tapped
@@ -65,10 +56,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         speechSynthesizer.speak(speechUtterance)
     }
     
-    //Gets heading of device using location
-    private func locationManager(manager: CLLocationManager!, didUpdateHeading heading: CLHeading!) {
-        // This will print out the direction the device is heading
-        headingLabel.text = heading.magneticHeading.description
+    //Gets heading of device using location and displays to headingLabel
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
+        headingLabel.text = "Heading: " + heading.magneticHeading.description + "\u{00B0}"
+        
+        degrees = CGFloat(heading.magneticHeading) * CGFloat(M_PI) / 180.0
+        
+        //Animate compass image
+        UIView.animate(withDuration: 1.0, animations: {
+            self.compassImage.transform = CGAffineTransform(rotationAngle: -self.degrees)
+        })
     }
 }
 
