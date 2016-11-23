@@ -15,7 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //Global variables
     let speechSynthesizer = AVSpeechSynthesizer()
     var locationManager:CLLocationManager!
-    var degrees:CGFloat = 0.0
+    var degrees: CGFloat = 0.0
+    var radians: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +45,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //--------------------------------------------------------------------------------------
     
     
-    //Speak if immage is tapped
+    //Speak location depending on heading.
     func imageTapped(img: AnyObject)
     {
-        speak("WWWWW")
+        switch self.degrees {
+        //North
+        case 340.0...360.0, 0.0..<20.0 :
+            speak("You are facing north")
+            
+        //Northeast
+        case 20.0..<70.0:
+            speak("You are facing northeast")
+            
+        //East
+        case 70.0..<110.0:
+            speak("You are facing east")
+            
+        //Southeast
+        case 110.0..<160.0:
+            speak("You are facing southeast")
+            
+        //South
+        case 160.0..<200.0:
+            speak("You are facing south")
+            
+        //Southwest
+        case 200.0..<250.0:
+            speak("You are facing southwest")
+            
+        //West
+        case 250.0..<290.0:
+            speak("You are facing west")
+            
+        //Northwest
+        case 290.0..<340.0:
+            speak("You are facing northwest")
+            
+        //Default
+        default:
+            speak("Error")
+        }
     }
     
     //Text to speech
@@ -60,11 +97,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
         headingLabel.text = "Heading: " + heading.magneticHeading.description + "\u{00B0}"
         
-        degrees = CGFloat(heading.magneticHeading) * CGFloat(M_PI) / 180.0
+        degrees = CGFloat(heading.magneticHeading)
+        radians = CGFloat(heading.magneticHeading) * CGFloat(M_PI) / 180.0
         
         //Animate compass image
-        UIView.animate(withDuration: 1.0, animations: {
-            self.compassImage.transform = CGAffineTransform(rotationAngle: -self.degrees)
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .allowUserInteraction, animations: {
+            self.compassImage.transform = CGAffineTransform(rotationAngle: -self.radians)
         })
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D261CE211DDE6002003ACF41 /* arrow-up-green.png in Resources */ = {isa = PBXBuildFile; fileRef = D261CE201DDE6002003ACF41 /* arrow-up-green.png */; };
 		D261CE411DDEA80C003ACF41 /* compass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D261CE401DDEA80C003ACF41 /* compass.jpg */; };
 		D2AFE6911DDE5DD3001FAB2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AFE6901DDE5DD3001FAB2A /* AppDelegate.swift */; };
 		D2AFE6931DDE5DD3001FAB2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AFE6921DDE5DD3001FAB2A /* ViewController.swift */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D261CE201DDE6002003ACF41 /* arrow-up-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-up-green.png"; path = "../../../../Downloads/arrow/arrow-up-green.png"; sourceTree = "<group>"; };
 		D261CE401DDEA80C003ACF41 /* compass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = compass.jpg; path = ../../../../Downloads/compass.jpg; sourceTree = "<group>"; };
 		D2AFE68D1DDE5DD3001FAB2A /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AFE6901DDE5DD3001FAB2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 				D2AFE6941DDE5DD3001FAB2A /* Main.storyboard */,
 				D2AFE6971DDE5DD3001FAB2A /* Assets.xcassets */,
 				D261CE401DDEA80C003ACF41 /* compass.jpg */,
-				D261CE201DDE6002003ACF41 /* arrow-up-green.png */,
 				D2AFE6991DDE5DD3001FAB2A /* LaunchScreen.storyboard */,
 				D2AFE69C1DDE5DD3001FAB2A /* Info.plist */,
 			);
@@ -97,7 +94,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Geoffrey Duong";
 				TargetAttributes = {
 					D2AFE68C1DDE5DD3001FAB2A = {
@@ -130,7 +127,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D261CE211DDE6002003ACF41 /* arrow-up-green.png in Resources */,
 				D2AFE69B1DDE5DD3001FAB2A /* LaunchScreen.storyboard in Resources */,
 				D2AFE6981DDE5DD3001FAB2A /* Assets.xcassets in Resources */,
 				D2AFE6961DDE5DD3001FAB2A /* Main.storyboard in Resources */,
@@ -190,6 +186,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -240,6 +237,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -271,6 +269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 957D6W54H9;
 				INFOPLIST_FILE = Compass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mrricearoni.geoffduong.Compass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +283,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 957D6W54H9;
 				INFOPLIST_FILE = Compass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mrricearoni.geoffduong.Compass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
