@@ -96,13 +96,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //Gets heading of device using location and displays to headingLabel
     func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
-        headingLabel.text = "Heading: " + heading.magneticHeading.description + "\u{00B0}"
-        
         degrees = CGFloat(heading.magneticHeading)
+
+        let roundedDegrees = String(format: "%.2f", degrees)
+        
+        headingLabel.text = "Heading: " + roundedDegrees + "\u{00B0}"
+        
         radians = CGFloat(heading.magneticHeading) * CGFloat(M_PI) / 180.0
         
         //Animate compass image
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .allowUserInteraction, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
             self.compassArrow.transform = CGAffineTransform(rotationAngle: self.radians)
         })
     }
